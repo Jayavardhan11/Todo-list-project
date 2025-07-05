@@ -11,20 +11,25 @@
   background: linear-gradient(135deg, #153677, #4e085f);
   padding: 10px;
 }
+
 .todo-app {
-  width: 100;
+  width: 100%;
   max-width: 540px;
   background: #fff;
   margin: 100px auto 20px;
   padding: 40px 30px 70px;
   border-radius: 10px;
 }
+
 .todo-app h2 {
   color: #002765;
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  font-size: 24px;
+  flex-wrap: wrap;
 }
+
 .todo-app h2 img {
   width: 30px;
   margin-left: 10px;
@@ -32,6 +37,7 @@
 
 .row {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   background: #edeef0;
@@ -39,24 +45,29 @@
   padding-left: 20px;
   margin-bottom: 25px;
 }
+
 input {
   flex: 1;
+  min-width: 150px;
   border: none;
   outline: none;
   background: transparent;
   padding: 10px;
-  font-weight: 14px;
+  font-size: 16px;
 }
+
 button {
   border: none;
   outline: none;
-  padding: 16px 50px;
+  padding: 12px 20px;
   background: #ff5945;
   color: #fff;
   font-size: 16px;
   border-radius: 40px;
   cursor: pointer;
+  margin: 10px;
 }
+
 ul li {
   list-style: none;
   font-size: 17px;
@@ -64,7 +75,9 @@ ul li {
   user-select: none;
   cursor: pointer;
   position: relative;
+  word-break: break-word;
 }
+
 ul li::before {
   content: "";
   position: absolute;
@@ -77,26 +90,52 @@ ul li::before {
   top: 12px;
   left: 8px;
 }
-ul li.checked{
+
+ul li.checked {
   color: #555;
   text-decoration: line-through;
 }
-ul li.checked::before{
-  color: #555;
-  text-decoration: line-through;
+
+ul li.checked::before {
   background-image: url(images/checked.png);
 }
-ul li span{
+
+ul li span {
   position: absolute;
   right: 0;
   top: 5px;
   width: 40px;
   font-size: 22px;
-  columns: #555;
+  color: #555;
   line-height: 40px;
   border-radius: 50%;
   text-align: center;
 }
-ul li span:hover{
+
+ul li span:hover {
   background: #edeef0;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .todo-app {
+    padding: 30px 20px 60px;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: stretch;
+    padding-left: 15px;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+  }
 }
